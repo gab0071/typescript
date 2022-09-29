@@ -1,4 +1,4 @@
-function myNumber(numero:number):string {
+function myNumber(numero: number): string {
     return `My number is : ${numero}`
 }
 
