@@ -4,6 +4,16 @@ interface BaseShoe {
     getColor()
 }
 
+//Decorator
+function decorator(logo: string) {
+    return function (target: Function) {
+        target.prototype.estampacion = function (): void {
+            console.log(`Zapatos estampados con el logo de: ${logo}`)
+        }
+    }
+}
+
+@decorator('Channel') // No se le coloca ; al final
 class Shoes implements BaseShoe {
     // Propiedades (Caracteristicas del objeto)
     public color: string
@@ -43,5 +53,8 @@ class Heels extends Shoes {
 var Model = new Heels('red', 40, 1200)
 Model.setFancyModel(true)
 Model.setColor('gold')
-
 console.log(Model)
+Model.estampacion()
+
+var shoes = new Shoes('white', 40, 500)
+console.log(shoes)
